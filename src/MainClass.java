@@ -110,6 +110,8 @@ public class MainClass {
 //
 //        dollar.setKursNBU(20);
 //        System.out.println(dollar.getKursNBU());
+
+//        dobavil kod!!!!!!+++++++++++++++++++++++++++++++++++++++!!!!!!!!!!!!!!!!!!
     }
 
 
