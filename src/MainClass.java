@@ -112,6 +112,7 @@ public class MainClass {
 //        System.out.println(dollar.getKursNBU());
 
 //        dobavil kod!!!!!!+++++++++++++++++++++++++++++++++++++++!!!!!!!!!!!!!!!!!!
+//        dob2
     }
 
 
