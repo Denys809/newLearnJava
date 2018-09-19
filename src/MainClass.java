@@ -22,21 +22,25 @@ public class MainClass {
 
 
 
-        String[][][] arrArrArr = new String[1][5][5];
-        for (int i = 0; i < arrArrArr.length; i++) {
-            for (int j = 0; j < arrArrArr[i].length; j++) {
-                for (int k = 0; k < arrArrArr[i][j].length; k++) {
-                    arrArrArr[i][j][k] = "g" + i + j + k;
-                    System.out.print(arrArrArr[i][j][k] + " ");
-                }
-                System.out.println("");
-            }
-            System.out.println();
-        }
+//        String[][][] arrArrArr = new String[1][5][5];
+//        for (int i = 0; i < arrArrArr.length; i++) {
+//            for (int j = 0; j < arrArrArr[i].length; j++) {
+//                for (int k = 0; k < arrArrArr[i][j].length; k++) {
+//                    arrArrArr[i][j][k] = "g" + i + j + k;
+//                    System.out.print(arrArrArr[i][j][k] + " ");
+//                }
+//                System.out.println("");
+//            }
+//            System.out.println();
+//        }
+        System.out.println("**********************************************************************");
 
-        objectLibs.ourArrayArrayNew(new int[5][5], 5);
-        objectLibs.fillArrayLeft(new int[5][5], 2);
-        objectLibs.fillArrayRight(new int[5][5], 1);
+        objectLibs.createMatrix(4, 4, 1);
+        objectLibs.fillLeftDiagonal(new int [4][4], 2);
+        objectLibs.fillRightDiagonal(new int[3][3], 9);
+
+
+        System.out.println("****************************************************************************");
 
         ArrayList<String> listArray = new ArrayList<>();
         listArray.add("test1");
@@ -96,25 +100,19 @@ public class MainClass {
 
         workWithList.addNewList(ourList);
         workWithList.addValueToListList(0,"test01",ourList);
-        workWithList.printListList(ourList);
-
 
         workWithList.addNewList(ourList);
         workWithList.addValueToListList(1,"test11",ourList);
-        workWithList.printListList(ourList);
 
         workWithList.addValueToListList(1,"test12",ourList);
-        workWithList.printListList(ourList);
 
         workWithList.addValueToListList(0,"test02",ourList);
-        workWithList.printListList(ourList);
 
         workWithList.addNewList(ourList);
         workWithList.addValueToListList(2,"test21", ourList);
-        workWithList.printListList(ourList);
 
         workWithList.addValueToListList(1,"test13", ourList);
-        workWithList.printListList(ourList);
+
 
         //        End Home work with List
 
