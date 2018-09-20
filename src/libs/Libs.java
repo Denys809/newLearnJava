@@ -30,68 +30,75 @@ public class Libs {
         System.out.println("del = " + tempDel);
         return 000;
     }
+//    ___________________________________________________________________
 
-
-//    public void printArray(int[] tempArray, int value) {
-//        for (int i = 0; i < tempArray.length; i++) {
-//            if (tempArray[i] < value) {
-//                System.out.println(tempArray[i] + " Элемент меньше " + value);
-//            } else if (tempArray[i] == value) {
-//                System.out.println(tempArray[i] + " Элемент равен " + value);
-//            } else if (tempArray[i] > value) {
-//                System.out.println(tempArray[i] + " Элемент больше " + value);
-//            }
-//        }
-//        System.out.println();
-//    }
-
-    public void ourArrayArrayNew(int[][] tempOurArrayNew, int fillValue) {
-        for (int i = 0; i < tempOurArrayNew.length; i++) {
-            for (int j = 0; j < tempOurArrayNew[i].length; j++) {
-                tempOurArrayNew[i][j] = fillValue;
-                System.out.print(tempOurArrayNew[i][j] + " ");
-            }
-            System.out.println("");
-        }
-        System.out.println();
-
-    }
-
-    public void fillArrayLeft(int[][] tempFillDiagonal, int fillValue) {
-        for (int i = 0; i < tempFillDiagonal.length; i++) {
-            for (int j = 0; j < tempFillDiagonal.length; j++) {
-                tempFillDiagonal[j][j] = fillValue;
-                System.out.print(tempFillDiagonal[i][j] + " ");
+    void printMatrix(int[][] xMatrix) {
+        for (int i = 0; i < xMatrix.length; i++) {
+            for (int j = 0; j < xMatrix[i].length; j++) {
+                System.out.print(xMatrix[i][j] + " ");
             }
             System.out.println();
         }
         System.out.println();
     }
 
+    public int[][] createMatrix(int countColumn, int countRow, int fillValue) {
+        try {
+            int[][] resultMatrix = new int[countColumn][countRow];
+            for (int i = 0; i < resultMatrix.length; i++) {
+                for (int j = 0; j < resultMatrix.length; j++) {
+                    resultMatrix[i][j] = fillValue;
+                }
+            }
+            printMatrix(resultMatrix);
 
-    public void fillArrayRight(int[][] tempFillDiagonal, int fillValue) {
-        for (int i = tempFillDiagonal.length-1; i < tempFillDiagonal.length; i++) {
-            for (int j = 0; j <= i; j++) {
-                tempFillDiagonal[i - j][j] = fillValue;
-            }
+        } catch (NegativeArraySizeException e) {
+            System.out.println("Ukazan otricatelnyi razmer matricy" + e);
+            return (null);
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+            return (null);
         }
-        for (int i = 0; i < tempFillDiagonal.length; i++) {
-            for (int j = 0; j < tempFillDiagonal.length; j++) {
-                System.out.print(tempFillDiagonal[i][j] + " ");
-            }
-            System.out.println();
-        }
+        return new int[1][1];
 
     }
 
+    public int[][] fillLeftDiagonal(int[][] incMatrix, int fillLeftElement) {
+        try {
+            int[][] resultMatrix = incMatrix;
+            int rows = incMatrix.length;
+            int columns = incMatrix[0].length;
+            if (rows == columns) {
+                for (int i = 0; i < incMatrix.length; i++) {
+                    for (int j = 0; j < incMatrix[i].length; j++) {
+                        if (j == i) resultMatrix[i][j] = fillLeftElement;
+                    }
+                }
+            } else {
+                System.out.println("Diagonal nevozmogno zapolnit, matrica ne kvadratna");
+            }
+            printMatrix(resultMatrix);
+            return resultMatrix;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Ukazan nlevoi razmer matricy" + e);
+            return incMatrix;
+        }
 
+
+    }
+
+    public int[][] fillRightDiagonal(int[][] incMatrix, int fillRightElement) {
+
+            int[][] resultMatrix = incMatrix;
+                for (int i = incMatrix.length - 1; i < incMatrix.length; i++) {
+                    for (int j = 0; j <= i; j++) {
+                        incMatrix[i - j][j] = fillRightElement;
+                    }
+                }
+                for (int i = 0; i < incMatrix.length; i++) {
+                    for (int j = 0; j < incMatrix.length; j++);
+                }
+                printMatrix(resultMatrix);
+                return resultMatrix;
+    }
 }
-
-
-
-
-
-
-
-
-

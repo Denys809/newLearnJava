@@ -8,24 +8,35 @@ public class WorkWithList {
 
     public void addNewList(List<List<String>> ourList) {
         ourList.add(new ArrayList<>());
+        printListList(ourList);
 
     }
 
-    public List<List<String>> addValueToListList(int i, String value, List<List<String>> ourList) {
-        ourList.get(i).add(value);
-        return ourList;
+    public List<List<String>> addValueToListList(int numberOfList, String value, List<List<String>> ourList) {
+        try {
+            ourList.get(numberOfList).add(value);
+            printListList(ourList);
+            return ourList;
+
+        } catch (IndexOutOfBoundsException e){
+            printListList(ourList);
+            System.out.println("Dlya dobavleniya elementa ukazana nesu. stroka");
+            return ourList;
+        } catch (Exception e) {
+            System.out.println("Error " + e);
+            return ourList;
+        }
+
     }
 
-    public void printListList(List<List<String>> ourList) {
+    private void printListList(List<List<String>> ourList) {
+        System.out.println("----------------------------------------------------------*****************------------");
 
         for (List<String> line :
-                ourList) {
-            for (String element :
-                    line) {
-                System.out.print(element + "; ");
-            }
-            System.out.println();
-        }
-        System.out.println("--------");
+                ourList)
+                System.out.println(line);
+
+
+
     }
 }
